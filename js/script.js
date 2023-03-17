@@ -200,6 +200,7 @@ const { createApp } = Vue
         myProfileImg: "img/avatar_2.jpg",
         myProfileName: "Simone",
         newMessage: "",
+        searching:"",
         
       }
     },
@@ -217,10 +218,13 @@ const { createApp } = Vue
                 message: this.newMessage,
                 status: "sent"
             }
-            this.contacts[activeIndex].messages.push(newMessageOb);
+            if(this.newMessage != ""){
+                this.contacts[activeIndex].messages.push(newMessageOb);
+                setTimeout(this.autoMessage, 1000);
+            }
             this.newMessage = "";
 
-            setTimeout(this.autoMessage, 1000);
+            
         },
 
         autoMessage(){
