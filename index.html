@@ -69,10 +69,10 @@
                 <div class="top-bar">
                     <div class="top-left">
                         <div class="img-container">
-                            <img src="img/avatar_2.jpg" alt="userImg">
+                            <img :src="contacts[activeIndex].avatar" alt="userImg">
                         </div>
                         <div id="active-chat-contact-text">
-                            <span>Nome Utente</span>
+                            <span>{{contacts[activeIndex].name}}</span>
                             <span class="contact-date">Ultimo accesso alle 12:00</span>
                         </div>
                     </div>
@@ -86,12 +86,12 @@
                 <!--message display-------------------------->
                 <div class="message-chat">
                     <ul class="my-message-list">
-                        <li class="message">
+                        <li v-for="(text, index) in contacts[activeIndex].messages" class="message" :class="text.status">
                             <div class="message-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic accusamus exercitationem, molestiae recusandae corrupti reiciendis adipisci? Obcaecati ducimus iure reiciendis blanditiis hic beatae culpa quis! Delectus repellendus recusandae rem reiciendis?
+                                {{text.message}}
                             </div>
                             <div class="message-date">
-                                16:00
+                                {{text.date}}
                             </div>
                         </li>
 

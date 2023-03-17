@@ -214,6 +214,7 @@ body{
     display: flex;
     flex-direction: column;
     list-style: none;
+    width: 100%;
     
     
 }
@@ -222,7 +223,7 @@ body{
 
     position: relative;
     max-width: 60%;
-    padding: 5px 5px 15px 5px;
+    padding: 5px 5px 25px 5px;
 
     background-color: white;
     border-radius: 15px;
@@ -233,8 +234,8 @@ body{
 
 .message-date{
     position: absolute;
-    bottom: 5px;
-    right: 5px;
+    bottom: 4px;
+    right: 4px;
 
     font-size: 0.8em;
     color: grey;
