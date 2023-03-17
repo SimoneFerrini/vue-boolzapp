@@ -104,7 +104,7 @@
                 <!--input bar-------------------------------->
                 <div class="write-message">
                     <i class="fa-regular fa-face-smile"></i>
-                    <input type="text" placeholder="new message">
+                    <input v-model="newMessage" type="text" placeholder="new message" @keyup.enter="sendMessage(activeIndex)">
                     <i class="fa-solid fa-microphone"></i>
                 </div>
             </div>

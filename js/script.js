@@ -199,6 +199,7 @@ const { createApp } = Vue
         activeIndex: 0,
         myProfileImg: "img/avatar_2.jpg",
         myProfileName: "Simone",
+        newMessage: "",
         
       }
     },
@@ -207,6 +208,28 @@ const { createApp } = Vue
     methods:{
         addActive(chatIndex){
             this.activeIndex = chatIndex;
+        },
+
+        sendMessage(activeIndex){
+            
+            let newMessageOb = {
+                date:"oggi, 16/10",
+                message: this.newMessage,
+                status: "sent"
+            }
+            this.contacts[activeIndex].messages.push(newMessageOb);
+            this.newMessage = "";
+
+            setTimeout(autoMessage(activeIndex), 1000);
+        },
+
+        autoMessage(activeIndex){
+            let newAnswer = {
+                date: "oggi 16/11",
+                message: " ok",
+                status: "received"
+            }
+            this.contacts[activeIndex].message.push(newAnswer);
         }
     }
 
