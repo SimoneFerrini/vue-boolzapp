@@ -135,7 +135,7 @@ const { createApp } = Vue
             },
             {
                 name: 'Claudia',
-                avatar: './img/avatar_5.jpg',
+                avatar: './img/avatar_io.jpg',
                 visible: true,
                 messages: [
                     {
@@ -197,7 +197,17 @@ const { createApp } = Vue
         ],
 
         activeIndex: 0,
+        myProfileImg: "img/avatar_2.jpg",
+        myProfileName: "Simone",
         
       }
+    },
+
+    
+    methods:{
+        addActive(chatIndex){
+            this.activeIndex = chatIndex;
+        }
     }
+
   }).mount('#app')

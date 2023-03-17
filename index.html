@@ -19,9 +19,9 @@
                 <div class="top-bar">
                     <div class="top-left">
                         <div class="img-container">
-                            <img src="img/avatar_1.jpg" alt="userImg">
+                            <img :src="myProfileImg" alt="userImg">
                         </div>
-                        <span>Nome Utente</span>
+                        <span>{{myProfileName}}</span>
                     </div>
                     <div class="top-right">
                         <i class="fa-solid fa-circle-notch"></i> 
@@ -45,13 +45,13 @@
 
                 <!--inizio userlist chat -------------------------->
                 <ul class="my-list">
-                    <li class="my-contact">
+                    <li v-for="(contact, index) in contacts" class="my-contact" :class="index == activeIndex ? 'active-chat' : '' " @click="addActive(index)">
                         <div class="contact-left">
                             <div class="img-container">
-                                <img src="img/avatar_2.jpg" alt="photo">
+                                <img :src="contact.avatar" alt="photo">
                             </div>
                             <div class="contact-text">
-                                <span>Nome Utente</span>
+                                <span>{{contact.name}} </span>
                                 <span class="contact-last-message">Ultimo messaggio</span>
                             </div>
                         </div>
@@ -95,39 +95,7 @@
                             </div>
                         </li>
 
-                        <li class="message sent">
-                            <div class="message-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic accusamus exercitationem, molestiae recusandae corrupti reiciendis adipisci? Obcaecati ducimus iure reiciendis blanditiis hic beatae culpa quis! Delectus repellendus recusandae rem reiciendis?
-                            </div>
-                            <div class="message-date">
-                                16:00
-                            </div>
-                        </li>
-                        <li class="message">
-                            <div class="message-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic accusamus exercitationem, molestiae recusandae corrupti reiciendis adipisci? Obcaecati ducimus iure reiciendis blanditiis hic beatae culpa quis! Delectus repellendus recusandae rem reiciendis?
-                            </div>
-                            <div class="message-date">
-                                16:00
-                            </div>
-                        </li>
-                        <li class="message">
-                            <div class="message-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic accusamus exercitationem, molestiae recusandae corrupti reiciendis adipisci? Obcaecati ducimus iure reiciendis blanditiis hic beatae culpa quis! Delectus repellendus recusandae rem reiciendis?
-                            </div>
-                            <div class="message-date">
-                                16:00
-                            </div>
-                        </li>
-                        <li class="message">
-                            <div class="message-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic accusamus exercitationem, molestiae recusandae corrupti reiciendis adipisci? Obcaecati ducimus iure reiciendis blanditiis hic beatae culpa quis! Delectus repellendus recusandae rem reiciendis?
-                            </div>
-                            <div class="message-date">
-                                16:00
-                            </div>
-                        </li>
-
+                       
                     </ul>
 
                     

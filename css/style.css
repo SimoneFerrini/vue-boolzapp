@@ -155,6 +155,11 @@ body{
     height: 60px;    
 }
 
+
+.my-contact:hover{
+    background-color: antiquewhite;
+}
+
 .contact-left{
     display: flex;
     flex-direction: row;
@@ -173,6 +178,10 @@ body{
     color: grey;
 }
 
+
+.active-chat{
+    background-color: #E9EBEB;
+}
 /*fine parte sinistra-----------------------*/
 
 
