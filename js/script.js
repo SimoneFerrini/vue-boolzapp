@@ -220,16 +220,16 @@ const { createApp } = Vue
             this.contacts[activeIndex].messages.push(newMessageOb);
             this.newMessage = "";
 
-            setTimeout(autoMessage(activeIndex), 1000);
+            setTimeout(this.autoMessage, 1000);
         },
 
-        autoMessage(activeIndex){
+        autoMessage(){
             let newAnswer = {
                 date: "oggi 16/11",
                 message: " ok",
                 status: "received"
             }
-            this.contacts[activeIndex].message.push(newAnswer);
+            this.contacts[this.activeIndex].messages.push(newAnswer);
         }
     }
 
