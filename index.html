@@ -69,9 +69,10 @@
                 <div class="top-bar">
                     <div class="top-left">
                         <div class="img-container">
-                            <img :src="contactsList[activeIndex].avatar" alt="userImg">
+                            <img :src="contactsList[activeIndex] == undefined ? '' : contactsList[activeIndex].avatar" alt="">
                         </div>
-                        <div id="active-chat-contact-text">
+                        <span v-if="contactsList[activeIndex] == undefined"> </span>
+                        <div id="active-chat-contact-text" v-else>
                             <span>{{contactsList[activeIndex].name}}</span>
                             <span class="contact-date">Ultimo accesso alle 12:00</span>
                         </div>
@@ -86,7 +87,8 @@
                 <!--message display-------------------------->
                 <div class="message-chat">
                     <ul class="my-message-list">
-                        <li v-for="(text, index) in contactsList[activeIndex].messages" class="message" :class="text.status">
+                        <li v-if="contactsList[activeIndex] == undefined "> </li>
+                        <li v-for="(text, index) in contactsList[activeIndex].messages" class="message" :class="text.status" v-else>
                             <div class="message-text">
                                 {{text.message}}
                             </div>
@@ -104,7 +106,8 @@
                 <!--input bar-------------------------------->
                 <div class="write-message">
                     <i class="fa-regular fa-face-smile"></i>
-                    <input v-model="newMessage" type="text" placeholder="new message" @keyup.enter="sendMessage(activeIndex)">
+                    <span v-if="contactsList[activeIndex] == undefined">!!! Can't send message !!!</span>
+                    <input v-model="newMessage" type="text" placeholder="new message" @keyup.enter="sendMessage(activeIndex)" v-else>
                     <i class="fa-solid fa-microphone"></i>
                 </div>
             </div>
