@@ -45,7 +45,7 @@
 
                 <!--inizio userlist chat -------------------------->
                 <ul class="my-list">
-                    <li v-for="(contact, index) in contacts" class="my-contact" :class="index == activeIndex ? 'active-chat' : '' " @click="addActive(index)">
+                    <li v-for="(contact, index) in contactsList" class="my-contact" :class="index == activeIndex ? 'active-chat' : '' " @click="addActive(index)">
                         <div class="contact-left">
                             <div class="img-container">
                                 <img :src="contact.avatar" alt="photo">
@@ -69,10 +69,10 @@
                 <div class="top-bar">
                     <div class="top-left">
                         <div class="img-container">
-                            <img :src="contacts[activeIndex].avatar" alt="userImg">
+                            <img :src="contactsList[activeIndex].avatar" alt="userImg">
                         </div>
                         <div id="active-chat-contact-text">
-                            <span>{{contacts[activeIndex].name}}</span>
+                            <span>{{contactsList[activeIndex].name}}</span>
                             <span class="contact-date">Ultimo accesso alle 12:00</span>
                         </div>
                     </div>
@@ -86,7 +86,7 @@
                 <!--message display-------------------------->
                 <div class="message-chat">
                     <ul class="my-message-list">
-                        <li v-for="(text, index) in contacts[activeIndex].messages" class="message" :class="text.status">
+                        <li v-for="(text, index) in contactsList[activeIndex].messages" class="message" :class="text.status">
                             <div class="message-text">
                                 {{text.message}}
                             </div>

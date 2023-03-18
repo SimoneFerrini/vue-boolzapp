@@ -205,6 +205,16 @@ const { createApp } = Vue
       }
     },
 
+    computed: {
+        contactsList(){
+            if(this.searching.trim().length > 0){
+                return this.contacts.filter((contact) => contact.name.toLowerCase().includes(this.searching.trim().toLowerCase()))
+            }else{
+                return this.contacts;
+            }
+        }
+    },
+
     
     methods:{
         addActive(chatIndex){
