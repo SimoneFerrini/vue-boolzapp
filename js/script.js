@@ -229,7 +229,7 @@ const { createApp } = Vue
                 status: "sent"
             }
             if(this.newMessage != ""){
-                this.contacts[activeIndex].messages.push(newMessageOb);
+                this.contactsList[activeIndex].messages.push(newMessageOb);
                 setTimeout(this.autoMessage, 1000);
             }
             this.newMessage = "";
@@ -243,7 +243,7 @@ const { createApp } = Vue
                 message: " ok",
                 status: "received"
             }
-            this.contacts[this.activeIndex].messages.push(newAnswer);
+            this.contactsList[this.activeIndex].messages.push(newAnswer);
         }
     }
 
