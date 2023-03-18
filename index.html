@@ -52,10 +52,10 @@
                             </div>
                             <div class="contact-text">
                                 <span>{{contact.name}} </span>
-                                <span class="contact-last-message">Ultimo messaggio</span>
+                                <span class="contact-last-message">{{contact.messages[contact.messages.length-1].message}}</span>
                             </div>
                         </div>
-                        <div class="contact-date">12:00</div>
+                        <div class="contact-date">{{contact.messages[contact.messages.length-1].date}}</div>
                     </li>
 
                 </ul>
@@ -74,7 +74,7 @@
                         <span v-if="contactsList[activeIndex] == undefined"> </span>
                         <div id="active-chat-contact-text" v-else>
                             <span>{{contactsList[activeIndex].name}}</span>
-                            <span class="contact-date">Ultimo accesso alle 12:00</span>
+                            <span class="contact-date">Ultimo accesso alle {{contactsList[activeIndex].messages[contactsList[activeIndex].messages.length - 1].date}}</span>
                         </div>
                     </div>
                     <div class="top-right">
