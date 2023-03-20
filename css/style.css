@@ -222,6 +222,7 @@ body.dark{
     flex-direction: column;
     gap: 3px;
     max-width: 70%;
+    overflow: hidden;
     
 }
 
@@ -233,6 +234,7 @@ body.dark{
 
 .contact-date{
     width: 30%;
+    text-align: end;
 }
 
 .contact-last-message,
@@ -329,6 +331,11 @@ body.dark{
     color: grey;
 }
 
+.message-date.dark{
+    color: white;
+}
+
+
 
 .sent{
     align-self:flex-end;
@@ -395,6 +402,10 @@ body.dark{
     border: none;
     background-color: transparent;
     color: grey;
+}
+
+.drop-btn.dark{
+    color: white;
 }
 
 .dropdown-content{
