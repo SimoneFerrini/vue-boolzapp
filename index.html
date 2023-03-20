@@ -74,7 +74,7 @@
 
                 <!--inizio userlist chat -------------------------->
                 <ul class="my-list">
-                    <li v-for="(contact, index) in contactsList" class="my-contact"  :class="isDark ? 'dark' : '' " :class="index == activeIndex ? 'active-chat' : '' " @click="addActive(index)">
+                    <li v-for="(contact, index) in contactsList" class="my-contact"  :class="isDark ? 'dark' : '', index == activeIndex ? 'active-chat' : '' " @click="addActive(index)">
                         <div class="contact-left">
                             <div class="contact-img-profile">
                                 <div class="img-container">

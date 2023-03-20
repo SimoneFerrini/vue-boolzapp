@@ -248,8 +248,16 @@ body.dark{
     background-color: #E9EBEB;
 }
 
-.active-chat.dark{
+.my-contact.active-chat.dark{
     background-color: grey;
+}
+
+.my-contact.active-chat.dark .contact-date{
+    color: white;
+}
+
+.my-contact.active-chat.dark .contact-last-message{
+    color: white;
 }
 
 
