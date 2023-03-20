@@ -201,6 +201,7 @@ const { createApp } = Vue
         myProfileName: "Simone",
         newMessage: "",
         searching:"",
+        chatReply: 0,
         autoReplys:[
             "ok",
             "It's a trap!",
@@ -233,14 +234,15 @@ const { createApp } = Vue
         },
 
         sendMessage(activeIndex){
-            
+            this.chatReply = activeIndex;
+
             let newMessageOb = {
                 date:"oggi, 16/10",
                 message: this.newMessage,
                 status: "sent"
             }
             if(this.newMessage != ""){
-                this.contactsList[activeIndex].messages.push(newMessageOb);
+                this.contactsList[this.chatReply].messages.push(newMessageOb);
                 setTimeout(this.autoMessage, 1000);
             }
             this.newMessage = "";
@@ -256,7 +258,7 @@ const { createApp } = Vue
                 message: replyMessage,
                 status: "received"
             }
-            this.contactsList[this.activeIndex].messages.push(newAnswer);
+            this.contactsList[this.chatReply].messages.push(newAnswer);
         }
     }
 
