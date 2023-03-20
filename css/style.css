@@ -66,9 +66,11 @@ body{
 
 .img-container{
     width: 40px;
+
 }
 
 .img-container img{
+    height: 100%;
     width: 100%;
     border-radius: 50%;
 }
@@ -164,14 +166,31 @@ body{
     display: flex;
     flex-direction: row;
     gap: 3px;
+    width: 70%;
+    
+}
+
+.contact-img-profile{
+    width: 30%;
 }
 
 .contact-text{
     display: flex;
     flex-direction: column;
     gap: 3px;
+    max-width: 70%;
+    
 }
 
+.contact-last-message{
+    height: 1em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.contact-date{
+    width: 30%;
+}
 
 .contact-last-message,
 .contact-date{
@@ -198,6 +217,13 @@ body{
 #active-chat-contact-text{
     display: flex;
     flex-direction: column;
+
+    
+}
+
+.right-contact-date{
+    font-size: 0.8em;
+    color: grey;
 }
 
 /*display messaggi-----------------*/
@@ -225,7 +251,7 @@ body{
     position: relative;
     max-width: 60%;
     min-width: 15%;
-    padding: 5px 5px 25px 5px;
+    padding: 5px 20px 25px 20px;
 
     background-color: white;
     border-radius: 15px;

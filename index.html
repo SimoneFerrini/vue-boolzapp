@@ -47,12 +47,15 @@
                 <ul class="my-list">
                     <li v-for="(contact, index) in contactsList" class="my-contact" :class="index == activeIndex ? 'active-chat' : '' " @click="addActive(index)">
                         <div class="contact-left">
-                            <div class="img-container">
-                                <img :src="contact.avatar" alt="photo">
+                            <div class="contact-img-profile">
+                                <div class="img-container">
+                                    <img :src="contact.avatar" alt="photo">
+                                </div>    
                             </div>
                             <div class="contact-text">
                                 <span>{{contact.name}} </span>
                                 <span class="contact-last-message">{{contact.messages[contact.messages.length-1].message}}</span>
+                               
                             </div>
                         </div>
                         <div class="contact-date">{{contact.messages[contact.messages.length-1].date}}</div>
@@ -74,7 +77,7 @@
                         <span v-if="contactsList[activeIndex] == undefined"> </span>
                         <div id="active-chat-contact-text" v-else>
                             <span>{{contactsList[activeIndex].name}}</span>
-                            <span class="contact-date">Ultimo accesso alle {{contactsList[activeIndex].messages[contactsList[activeIndex].messages.length - 1].date}}</span>
+                            <span class="right-contact-date">Ultimo accesso alle {{contactsList[activeIndex].messages[contactsList[activeIndex].messages.length - 1].date}}</span>
                         </div>
                     </div>
                     <div class="top-right">
