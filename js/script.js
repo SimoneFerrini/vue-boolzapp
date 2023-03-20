@@ -201,6 +201,17 @@ const { createApp } = Vue
         myProfileName: "Simone",
         newMessage: "",
         searching:"",
+        autoReplys:[
+            "ok",
+            "It's a trap!",
+            "Viscido ribelle",
+            "Eri un fratello per me, dovevi sconfiggere il lato oscuro non unirti a loro",
+            "per aspera ad astra",
+            "m'illumino di Manson",
+            "oggi sei simpatico...",
+            "sempre meglio di Siri",
+            "piove, governo ladro"
+        ]
         
       }
     },
@@ -238,9 +249,11 @@ const { createApp } = Vue
         },
 
         autoMessage(){
+            let replyMessage = this.autoReplys[Math.floor(Math.random() * (this.autoReplys.length))];
+
             let newAnswer = {
                 date: "oggi 16/11",
-                message: " ok",
+                message: replyMessage,
                 status: "received"
             }
             this.contactsList[this.activeIndex].messages.push(newAnswer);
