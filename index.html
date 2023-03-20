@@ -125,7 +125,7 @@
                 </div>
 
                 <!--message display-------------------------->
-                <div class="message-chat">
+                <div id="message-chat">
                     <ul class="my-message-list">
                         <li v-if="contactsList[activeIndex] == undefined "> </li>
                         <li v-for="(text, index) in contactsList[activeIndex].messages" class="message" :class="text.status, isDark ? 'dark' : '' " v-else>

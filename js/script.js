@@ -244,6 +244,8 @@ const { createApp } = Vue
             }
             if(this.newMessage != ""){
                 this.contactsList[this.chatReply].messages.push(newMessageOb);
+                this.scrollToBottom;
+                this.scrollToEnd();
                 setTimeout(this.autoMessage, 1000);
             }
             this.newMessage = "";
@@ -260,6 +262,7 @@ const { createApp } = Vue
                 status: "received"
             }
             this.contactsList[this.chatReply].messages.push(newAnswer);
+            this.scrollToEnd();
         },
 
         changeIsDark(){
@@ -270,7 +273,13 @@ const { createApp } = Vue
             this.contactsList[this.activeIndex].messages.splice(index, 1)
 
 
-        }
+        },
+
+        scrollToEnd() {
+            var container = document.getElementById("message-chat");
+            var scrollHeight = container.scrollHeight;
+            container.scrollTop = scrollHeight;
+        },
     }
 
   }).mount('#app')
