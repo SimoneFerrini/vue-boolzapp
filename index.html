@@ -156,7 +156,10 @@
                     <i class="fa-regular fa-face-smile"></i>
                     <span v-if="contactsList[activeIndex] == undefined">!!! Can't send message !!!</span>
                     <input v-model="newMessage" :class="isDark ? 'dark' : '' " type="text" placeholder="new message" @keyup.enter="sendMessage(activeIndex)" v-else>
-                    <i class="fa-solid fa-microphone"></i>
+                    <div v-if="newMessage == '' ">
+                        <i class="fa-solid fa-microphone"></i>
+                    </div>
+                    <div v-else @click="sendMessage(activeIndex)"><i class="fa-solid fa-paper-plane"></i></div>
                 </div>
             </div>
 
