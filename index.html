@@ -8,15 +8,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+
+<body :class="isDark ? 'dark' : '' " >
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
     <div id="app">
         <div id="bgc-top"></div>
-        <div id="main-display">
+        <div id="main-display" :class="isDark ? 'dark' : '' ">
             <!--parte sinistra ---------------------------------- -->
             <div id="left-side">
-                <div class="top-bar">
+                <div class="top-bar" :class="isDark ? 'dark' : '' ">
                     <div class="top-left">
                         <div class="img-container">
                             <img :src="myProfileImg" alt="userImg">
@@ -24,28 +25,31 @@
                         <span>{{myProfileName}}</span>
                     </div>
                     <div class="top-right">
+                        <div @click="changeIsDark()" >
+                            <i class="fa-solid fa-circle-half-stroke" ></i>
+                        </div>
                         <i class="fa-solid fa-circle-notch"></i> 
                         <i class="fa-solid fa-user"></i> 
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
                 </div>
 
-                <div id="notification-alert">
-                    <div class="alert-signal"><i class="fa-regular fa-bell-slash"></i></div>
+                <div id="notification-alert" :class="isDark ? 'dark' : '' ">
+                    <div class="alert-signal" :class="isDark ? 'dark' : '' "><i class="fa-regular fa-bell-slash"></i></div>
                     <div class="alert-text">
                         <span>Ricevi notifiche di nuovi messaggi</span>
-                        <a href="index.html" id="alert-active">Attive notifiche desktop</a>
+                        <a href="index.html" id="alert-active" :class="isDark ? 'dark' : '' ">Attive notifiche desktop</a>
                     </div>
                 </div>
 
-                <div id="search-bar">
-                    <button id="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    <input type="text" placeholder="Search" v-model="searching">
+                <div id="search-bar" :class="isDark ? 'dark' : '' ">
+                    <button id="btn-search" :class="isDark ? 'dark' : '' "><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <input type="text" :class="isDark ? 'dark' : '' " placeholder="Search" v-model="searching">
                 </div>
 
                 <!--inizio userlist chat -------------------------->
                 <ul class="my-list">
-                    <li v-for="(contact, index) in contactsList" class="my-contact" :class="index == activeIndex ? 'active-chat' : '' " @click="addActive(index)">
+                    <li v-for="(contact, index) in contactsList" class="my-contact"  :class="isDark ? 'dark' : '' " :class="index == activeIndex ? 'active-chat' : '' " @click="addActive(index)">
                         <div class="contact-left">
                             <div class="contact-img-profile">
                                 <div class="img-container">
@@ -68,8 +72,8 @@
 
 
             <!-- parte destra ----------------------------------- -->
-            <div id="right-side">
-                <div class="top-bar">
+            <div id="right-side" :class="isDark ? 'dark' : '' ">
+                <div class="top-bar" :class="isDark ? 'dark' : '' ">
                     <div class="top-left">
                         <div class="img-container">
                             <img :src="contactsList[activeIndex] == undefined ? '' : contactsList[activeIndex].avatar" alt="">
@@ -107,10 +111,10 @@
                 </div>
 
                 <!--input bar-------------------------------->
-                <div class="write-message">
+                <div class="write-message" :class="isDark ? 'dark' : '' ">
                     <i class="fa-regular fa-face-smile"></i>
                     <span v-if="contactsList[activeIndex] == undefined">!!! Can't send message !!!</span>
-                    <input v-model="newMessage" type="text" placeholder="new message" @keyup.enter="sendMessage(activeIndex)" v-else>
+                    <input v-model="newMessage" :class="isDark ? 'dark' : '' " type="text" placeholder="new message" @keyup.enter="sendMessage(activeIndex)" v-else>
                     <i class="fa-solid fa-microphone"></i>
                 </div>
             </div>
