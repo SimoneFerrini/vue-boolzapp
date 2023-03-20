@@ -202,6 +202,7 @@ const { createApp } = Vue
         newMessage: "",
         searching:"",
         chatReply: 0,
+        isDark: true,
         autoReplys:[
             "ok",
             "It's a trap!",
@@ -259,6 +260,10 @@ const { createApp } = Vue
                 status: "received"
             }
             this.contactsList[this.chatReply].messages.push(newAnswer);
+        },
+
+        changeIsDark(){
+            this.isDark = !this.isDark;
         }
     }
 
