@@ -264,6 +264,12 @@ const { createApp } = Vue
 
         changeIsDark(){
             this.isDark = !this.isDark;
+        },
+
+        deleteMessage(index){
+            this.contactsList[this.activeIndex].messages.splice(index, 1)
+
+
         }
     }
 

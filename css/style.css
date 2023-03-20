@@ -304,7 +304,7 @@ body.dark{
     position: relative;
     max-width: 60%;
     min-width: 15%;
-    padding: 5px 20px 25px 20px;
+    padding: 5px 30px 25px 20px;
 
     background-color: white;
     border-radius: 15px;
@@ -312,6 +312,11 @@ body.dark{
 
     color: black;
 
+}
+
+.message.dark{
+    color: white;
+    background-color: rgb(60,60,60);
 }
 
 
@@ -328,6 +333,11 @@ body.dark{
 .sent{
     align-self:flex-end;
     background-color: #D5F9BA;
+}
+
+.sent.dark{
+    color: white;
+    background-color: #009688;
 }
 
 /*nuovo messaggio---------------------------------*/
@@ -370,4 +380,40 @@ body.dark{
 
 .write-message input.dark{
     background-color: rgb(60, 60, 60) ;
+    color: white;
+}
+
+/*dropdown -----------------*/
+.dropdown{
+    position: absolute;
+    right: 10px;
+    top: 5px;
+
+}
+
+.drop-btn{
+    border: none;
+    background-color: transparent;
+    color: grey;
+}
+
+.dropdown-content{
+    display: none;
+
+    flex-direction: column;
+
+    padding: 3px;
+    
+    background-color: rgb(179, 179, 179);
+
+}
+
+.dropdown:hover .dropdown-content{
+    display: flex;
+}
+
+.dropdown-content span{
+    text-decoration: none;
+    color: black;
+
 }

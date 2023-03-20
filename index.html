@@ -83,11 +83,15 @@
                             </div>
                             <div class="contact-text">
                                 <span>{{contact.name}} </span>
-                                <span class="contact-last-message">{{contact.messages[contact.messages.length-1].message}}</span>
+                                <div>
+                                    <span v-if="contact.messages.length == 0 " class="contact-last-message"> Nessun Messaggio</span>
+                                    <span v-else class="contact-last-message">{{contact.messages[contact.messages.length-1].message}}</span>
+                                </div>
                                
                             </div>
                         </div>
-                        <div class="contact-date">{{contact.messages[contact.messages.length-1].date}}</div>
+                        <div class="contact-date" v-if="contact.messages.length == 0"> </div>
+                        <div class="contact-date" v-else>{{contact.messages[contact.messages.length-1].date}}</div>
                     </li>
 
                 </ul>
@@ -106,7 +110,11 @@
                         <span v-if="contactsList[activeIndex] == undefined"> </span>
                         <div id="active-chat-contact-text" v-else>
                             <span>{{contactsList[activeIndex].name}}</span>
-                            <span class="right-contact-date">Ultimo accesso alle {{contactsList[activeIndex].messages[contactsList[activeIndex].messages.length - 1].date}}</span>
+                            <div>
+                                <span v-if="contactsList[activeIndex].messages == 0" class="right-contact-date"> No messages</span>
+                                <span v-else class="right-contact-date">Ultimo accesso alle {{contactsList[activeIndex].messages[contactsList[activeIndex].messages.length - 1].date}}</span>
+                                
+                            </div>
                         </div>
                     </div>
                     <div class="top-right">
@@ -120,13 +128,21 @@
                 <div class="message-chat">
                     <ul class="my-message-list">
                         <li v-if="contactsList[activeIndex] == undefined "> </li>
-                        <li v-for="(text, index) in contactsList[activeIndex].messages" class="message" :class="text.status" v-else>
+                        <li v-for="(text, index) in contactsList[activeIndex].messages" class="message" :class="text.status, isDark ? 'dark' : '' " v-else>
                             <div class="message-text">
                                 {{text.message}}
                             </div>
                             <div class="message-date">
                                 {{text.date}}
                             </div>
+                            <div class="dropdown">
+                                <button class="drop-btn"><i class="fa-solid fa-chevron-down"></i></button>
+                                <div class="dropdown-content">
+                                    <span>Message Info</span>
+                                    <span @click="deleteMessage(index)">Delete Message</span>
+                                </div>
+                            </div>
+                            
                         </li>
 
                        
